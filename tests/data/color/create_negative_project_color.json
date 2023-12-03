@@ -1,0 +1,272 @@
+[
+    {
+        "requestBody": {
+            "name": "some-random-color",
+            "g": 155,
+            "b": 249,
+            "a": 1
+        },
+        "name": "without r",
+        "statusCode": 400,
+        "asserts": {
+            "path": "message",
+            "value": "\"r\" is required"
+        }
+    },
+    {
+        "requestBody": {
+            "r": 65,
+            "g": 155,
+            "b": 249,
+            "a": 1
+        },
+        "name": "without name",
+        "statusCode": 400,
+        "asserts": {
+            "path": "message",
+            "value": "\"name\" is required"
+        }
+    },
+    {
+        "requestBody": {
+            "name": "some-random-color",
+            "r": 65,
+            "b": 249,
+            "a": 1
+        },
+        "name": "without g",
+        "statusCode": 400,
+        "asserts": {
+            "path": "message",
+            "value": "\"g\" is required"
+        }
+    },
+    {
+        "requestBody": {
+            "name": "some-random-color",
+            "r": 65,
+            "g": 249,
+            "a": 1
+        },
+        "name": "without b",
+        "statusCode": 400,
+        "asserts": {
+            "path": "message",
+            "value": "\"b\" is required"
+        }
+    },
+    {
+        "requestBody": {
+            "name": "some-random-color",
+            "r": 65,
+            "g": 249,
+            "b": 133
+        },
+        "name": "without a",
+        "statusCode": 400,
+        "asserts": {
+            "path": "message",
+            "value": "\"a\" is required"
+        }
+    },
+
+
+    {
+        "requestBody": {
+            "name": "some-random-color",
+            "r": -1,
+            "g": 249,
+            "b": 100,
+            "a": 1
+        },
+        "name": "negative value for r",
+        "statusCode": 400,
+        "asserts": {
+            "path": "message",
+            "value": "\"r\" must be larger than or equal to 0"
+        }
+    },
+    {
+        "requestBody": {
+            "name": "some-random-color",
+            "r": 233,
+            "g": -1,
+            "b": 100,
+            "a": 1
+        },
+        "name": "negative value for g",
+        "statusCode": 400,
+        "asserts": {
+            "path": "message",
+            "value": "\"g\" must be larger than or equal to 0"
+        }
+    },
+    {
+        "requestBody": {
+            "name": "some-random-color",
+            "r": 233,
+            "g": 100,
+            "b": -1,
+            "a": 1
+        },
+        "name": "negative value for b",
+        "statusCode": 400,
+        "asserts": {
+            "path": "message",
+            "value": "\"b\" must be larger than or equal to 0"
+        }
+    },
+    {
+        "requestBody": {
+            "name": "some-random-color",
+            "r": 233,
+            "g": 100,
+            "b": 1,
+            "a": -1
+        },
+        "name": "negative value for a",
+        "statusCode": 400,
+        "asserts": {
+            "path": "message",
+            "value": "\"a\" must be larger than or equal to 0"
+        }
+    },
+
+
+    {
+        "requestBody": {
+            "name": "some-random-color",
+            "r": 300,
+            "g": 100,
+            "b": 1,
+            "a": 0
+        },
+        "name": "value above 255 for r",
+        "statusCode": 400,
+        "asserts": {
+            "path": "message",
+            "value": "\"r\" must be less than or equal to 255"
+        }
+    },
+    {
+        "requestBody": {
+            "name": "some-random-color",
+            "r": 100,
+            "g": 256,
+            "b": 1,
+            "a": 0
+        },
+        "name": "value above 255 for g",
+        "statusCode": 400,
+        "asserts": {
+            "path": "message",
+            "value": "\"g\" must be less than or equal to 255"
+        }
+    },
+    {
+        "requestBody": {
+            "name": "some-random-color",
+            "r": 234,
+            "g": 100,
+            "b": 260,
+            "a": 0
+        },
+        "name": "value above 255 for b",
+        "statusCode": 400,
+        "asserts": {
+            "path": "message",
+            "value": "\"b\" must be less than or equal to 255"
+        }
+    },
+    {
+        "requestBody": {
+            "name": "some-random-color",
+            "r": 234,
+            "g": 100,
+            "b": 255,
+            "a": 1.1
+        },
+        "name": "value above 255 for a",
+        "statusCode": 400,
+        "asserts": {
+            "path": "message",
+            "value": "\"a\" must be less than or equal to 1"
+        }
+    },
+
+    {
+        "requestBody": {
+            "name": 1,
+            "r": 234,
+            "g": 100,
+            "b": 133,
+            "a": 1
+        },
+        "name": "value for name has invalid type",
+        "statusCode": 400,
+        "asserts": {
+            "path": "message",
+            "value": "\"name\" must be a string"
+        }
+    },
+    {
+        "requestBody": {
+            "name": "some-random-color",
+            "r": "234",
+            "g": 100,
+            "b": 133,
+            "a": 1
+        },
+        "name": "value for r has invalid type",
+        "statusCode": 400,
+        "asserts": {
+            "path": "message",
+            "value": "\"r\" must be a number"
+        }
+    },
+    {
+        "requestBody": {
+            "name": "some-random-color",
+            "r": 234,
+            "g": "100",
+            "b": 133,
+            "a": 1
+        },
+        "name": "value for g has invalid type",
+        "statusCode": 400,
+        "asserts": {
+            "path": "message",
+            "value": "\"g\" must be a number"
+        }
+    },
+    {
+        "requestBody": {
+            "name": "some-random-color",
+            "r": 234,
+            "g": 100,
+            "b": "133",
+            "a": 1
+        },
+        "name": "value for b has invalid type",
+        "statusCode": 400,
+        "asserts": {
+            "path": "message",
+            "value": "\"b\" must be a number"
+        }
+    },
+    {
+        "requestBody": {
+            "name": "some-random-color",
+            "r": 234,
+            "g": 100,
+            "b": 133,
+            "a": "1"
+        },
+        "name": "value for a has invalid type",
+        "statusCode": 400,
+        "asserts": {
+            "path": "message",
+            "value": "\"a\" must be a number"
+        }
+    }
+]
